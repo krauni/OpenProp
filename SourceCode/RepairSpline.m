@@ -72,7 +72,7 @@
 
 % % -------------------------------------------------------------------------
 % % ---------------------------------------------------------- Implementation
-% % Spline inputs:   
+% % Spline inputs:
 % %       n  = 5;  number of splines Ms == n + 1, NOTE: n must be ODD or else spline is always zero at TC == 0!
 % %       k  = 4;  polynomial order, k == 4 for cubic B-splines
 % %
@@ -111,7 +111,7 @@ function [XX] = RepairSpline(RC,X,name,H)
 if     nargin == 2
     name = '[unknown]';
     H    = 0;
-        
+
 elseif nargin == 3,
     H    = 0;
 end
@@ -125,7 +125,7 @@ Mp   = length(RC);
 
 
 
-% ----------------------------------------------------------- Spline inputs   
+% ----------------------------------------------------------- Spline inputs
 n  = 3;                      % number of splines Ms == n + 1, NOTE: n must be ODD or else spline is always zero at TC == 0!
 k  = 4;                      % polynomial order, k == 4 for cubic B-splines
 Nk = k+n+1;                  % number of knots
@@ -133,7 +133,7 @@ Nk = k+n+1;                  % number of knots
 
 
 % ------------------------------- Find spline parameter TC, as in S = S(TC)
-% i.e. Map RC into TC in the interval [0,1], where RC is assumed to be 
+% i.e. Map RC into TC in the interval [0,1], where RC is assumed to be
 %      given in equal intervals.
 
 TC = (RC - RC(1)) / (RC(end) - RC(1));                        % size [Mp,1]
@@ -143,7 +143,7 @@ TC = (RC - RC(1)) / (RC(end) - RC(1));                        % size [Mp,1]
 % % % ------------------------ Find spline knot sequence using averaging method
 % % knot         = zeros(Nk,1);
 % % knot(n+2:Nk) = ones(k,1);
-% % 
+% %
 % % for j = 1:n+1-k
 % %     knot(k+j) = sum(TC(1+(j:j+k-2)))/(k-1);
 % % end
@@ -186,7 +186,7 @@ XXX = BB*A;
 
 % ------------------------------------------------------------ Display plot
 if H ~= 0
-    figure(H), 
+    figure(H),
         hold on,
         H1 = plot(RRR,XXX,'k');
         H2 = plot(RC,X ,'c.');
@@ -204,7 +204,7 @@ end
 %----------------------------------------------------- Reshape if necessary
 [aa,bb] = size(XX);
 
-if aa == b & bb == a
+if aa == b && bb == a
     XX = XX';
 end
 %--------------------------------------------------------------------------
