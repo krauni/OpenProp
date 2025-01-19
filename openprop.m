@@ -1,4 +1,4 @@
-clear global;  clear all; close all; clc; 
+clear global;  clear all; close all; clc;
 
 disp('% ----------------------------------------------------------------------- %')
 disp('%                                                                         %')

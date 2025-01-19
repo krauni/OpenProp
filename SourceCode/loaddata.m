@@ -33,7 +33,7 @@ function loaddata(hObject,ED)
     elseif strcmp(CurrentDirectory,'SourceCode')
 
         cd('../')
-        uiload;
+        uiload();
         cd(['./',filename])
 
     else
